@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Health Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Smart Health Tracker</h1>
+      <p class="tagline">Track your wellness journey and uncover actionable insights.</p>
+    </header>
+
+    <main class="app-container">
+      <section id="auth-section" class="card">
+        <div class="tabs">
+          <button id="login-tab" class="tab active" type="button">Login</button>
+          <button id="register-tab" class="tab" type="button">Register</button>
+        </div>
+        <form id="login-form" class="form active">
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Password<input type="password" name="password" required /></label>
+          <button type="submit">Sign In</button>
+          <p class="form-feedback" id="login-feedback"></p>
+        </form>
+        <form id="register-form" class="form">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Password<input type="password" name="password" required minlength="6" /></label>
+          <button type="submit">Create Account</button>
+          <p class="form-feedback" id="register-feedback"></p>
+        </form>
+      </section>
+
+      <section id="dashboard" class="hidden">
+        <div class="dashboard-header">
+          <div>
+            <h2 id="welcome-message"></h2>
+            <p id="profile-summary"></p>
+          </div>
+          <button id="logout-button" type="button">Log out</button>
+        </div>
+
+        <div class="grid">
+          <section class="card">
+            <h3>Record Daily Metrics</h3>
+            <form id="metric-form" class="form">
+              <label>Date<input type="date" name="recorded_for" /></label>
+              <div class="split">
+                <label>Steps<input type="number" name="steps" min="0" /></label>
+                <label>Calories<input type="number" name="calories" min="0" /></label>
+              </div>
+              <div class="split">
+                <label>Heart Rate<input type="number" name="heart_rate" min="0" /></label>
+                <label>Sleep Hours<input type="number" name="sleep_hours" step="0.1" min="0" /></label>
+              </div>
+              <label>Notes<textarea name="notes" rows="2" placeholder="How did you feel today?"></textarea></label>
+              <button type="submit">Save Entry</button>
+              <p class="form-feedback" id="metric-feedback"></p>
+            </form>
+          </section>
+
+          <section class="card">
+            <h3>Wellness Summary (Last 30 Days)</h3>
+            <ul class="summary" id="summary-list"></ul>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="table-header">
+            <h3>Recent Entries</h3>
+            <div class="filters">
+              <label>From<input type="date" id="filter-start" /></label>
+              <label>To<input type="date" id="filter-end" /></label>
+              <button id="filter-button" type="button">Filter</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Steps</th>
+                <th>Calories</th>
+                <th>Heart Rate</th>
+                <th>Sleep (hrs)</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="metrics-table"></tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>&copy; <span id="year"></span> Smart Health Tracker. Built for holistic wellbeing.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
