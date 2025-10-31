@@ -1,0 +1,6 @@
+__pycache__/
+backend/health_tracker.db
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
